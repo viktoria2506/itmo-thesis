@@ -18,6 +18,11 @@
 \usepackage{xspace}
 
 \newcommand{\alglambda}{${(1 + (\lambda , \lambda))}$\xspace}
+\newcommand{\alglambdaf}{${(1 + (\lambda , \lambda))}$-ГА\xspace}
+\newcommand{\N}{{\mathbb N}}
+\newcommand{\R}{{\mathbb R}}
+
+\DeclareMathOperator{\Bin}{Bin}
 %% Данные пакеты необязательны к использованию в бакалаврских/магистерских
 %% Они нужны для иллюстративных целей
 %% Начало
@@ -25,6 +30,21 @@
 \usetikzlibrary{arrows}
 \usepackage{filecontents}
 \begin{filecontents}{bachelor-thesis.bib}
+@article{DoerrDE15,
+  author = {Benjamin Doerr and
+Carola Doerr and
+Franziska Ebel},
+  title = {From black-box complexity to designing new genetic algorithms},
+  year = {2015},
+  journal = {Theoretical Computer Science},
+  optdoi = {10.1016/j.tcs.2014.11.028},
+  optissn = {0304-3975},
+  optnote = {Preliminary version in Proc.~of GECCO 2013},
+  opturl = {http://dx.doi.org/10.1016/j.tcs.2014.11.028},
+  pages = {87--104},
+  volume = {567},
+  langid = {english}
+}
 @online{ doerr-doerr-lambda-lambda-self-adjustment-arxiv,
     year        = {2019},
     title       = {Optimal Parameter Choices Through Self-Adjustment: Applying the 1/5-th Rule in
@@ -167,8 +187,6 @@
 %% Макрос для введения. Совместим со старым стилевиком.
 \startprefacepage
 
-Генетический алгоритм \alglambda
-
 %% Начало содержательной части.
 \chapter{Применение генетического алгоритма \alglambda на задаче поиска максимального разреза графа}
 
@@ -179,6 +197,15 @@
 \finishrelatedwork
 
 \section{Генетический алгоритм \alglambda}
+
+Генетический алгоритм \alglambda~--- относительно недавно сформулированный эволюционный алгоритм, минимизирующий функцию приспособленности $f(x)~:~\{0, 1\}^n \rightarrow \R$ и содержайщий в себе 3 главных параметра:
+\begin{itemize}
+   \item размер популяции $\lambda \in \N$;
+   \item вероятность мутации $p \in [0, 1]$;
+   \item смещённость скрещивания $c \in [0, 1]$.
+\end{itemize}
+\alglambdaf хранит одну особь $x$, которая инициализируется случайной битовой строкой длины $n$, где $n$ - размер проблемы. Каждая итерация алгоритма состоит из двух фаз: мутации и скрещивания. В фазе мутации алгоритм сначала выбирает $\ell \sim \Bin(n, p)$ из биномиального распределения, что называется силой мутации. После этого создается $\lambda$ потомков, каждый путем инвертирования $\ell$ бит родителя. Потомок $x'$ с наименьшим значением функции приспособленности побеждает. Если таких несколько, то победитель выбирается случайным образом.
+Далее следует фаза скрещивания. Снова создается $\lambda$ потомков. Каждый потомок - результат скрещивания победителя мутации и родителя
 
 \section{Задача о максимальном разрезе графа}
 
