@@ -383,7 +383,7 @@ $$
 Для последующего сравнения теоретических оценок времени работы будем анализировать следующие алгоритмы:
 \begin{itemize}
   \item Random Local Search;
-  \item \oea со стандартным операттором мутации;
+  \item \oea со стандартным оператором мутации;
   \item \oea с выбором вероятности по степенному закону;
   \item \alglambdaf.
 \end{itemize}
@@ -394,6 +394,27 @@ Random Local Search - достаточно популярный эволюцио
 $$
   T = \sum_{i=o}^{\frac{n}{2} - \frac{\sqrt{n-2}}{2}} T_i
 $$
+
+Вероятность выбрать случайно вершину слева от разреза $Pr[i \rightarrow i + 1] = \frac{n-i}{n}$, где $i$ равно количеству вершин справа от разбиения, т.е. количество единиц в разбиении $P$.
+Отсюда следует, что  $T_i$ имеет геометрическое распределение $\Geom(\frac{n-i}{n})$ и $E[T_i] = \frac{n}{n-i}$.
+
+Посчитаем математическое ожидание времени работы, используя формулу Эйлера для гармонического ряда:
+\begin{align*}
+    E[T] &=
+                \sum_{i=o}^{\frac{n}{2} - \frac{\sqrt{n-2}}{2}} E[T_i] =
+                \sum_{i=o}^{\frac{n}{2} - \frac{\sqrt{n-2}}{2}} \frac{n}{n-i} = [j = n - i] = n \sum_{j=\frac{n}{2} + \frac{\sqrt{n-2}}{2}}^{n} \frac{1}{j}  \\
+        &\approx
+                n\left(ln(n) - ln\left(\frac{n}{2} + \frac{\sqrt{n-2}}{2}\right)\right) =
+                n ln\left(\frac{n}{\frac{n}{2} + \frac{\sqrt{n-2}}{2}}\right) \\
+        &=
+                n ln\left(\frac{2}{1 + \frac{\sqrt{n-2}}{n}}\right) = nln2 - nln\left(1 + \frac{\sqrt{n-2}}{n}\right) \\
+        &= nln2 - n\Theta\left(\frac{1}{\sqrt{n}}\right) = nln2 - o(n)
+\end{align*}
+
+
+
+
+
 \section{Анализ алгоритма \alglambda на полных графах}
 
 \begin{lemma}\label{lem:mut1}
