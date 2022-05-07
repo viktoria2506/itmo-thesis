@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{itmo-student-thesis}[2021/06/03 v1.4.3]
+\ProvidesClass{itmo-student-thesis}[2020/06/04 v1.4.2]
 \RequirePackage{xkvltxp}
 \LoadClass[14pt,a4paper]{extreport}
 
@@ -91,7 +91,7 @@
 
 %% Полуторный межстрочный интервал
 \RequirePackage{setspace}
-\onehalfspacing
+\onehalfspace
 
 %% Абзацный отступ по ГОСТу - пять букв. Это примерно столько.
 
@@ -222,7 +222,9 @@
     sortcites=true,
     bibstyle=gost-numeric,
     citestyle=numeric-comp,
-    autolang=other
+    autolang=other,
+    movenames=false,
+    maxbibnames=99
 ]{biblatex}
 
 %% Патчи к стилевику библиографии.
