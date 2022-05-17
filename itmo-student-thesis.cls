@@ -1156,7 +1156,7 @@
         \providecommand{\@strings@DegreeName@en}{Master}
     }{
         \ifstrequal{#1}{Бакалавр}{
-            \providecommand{\thespecialization@ru}{Информатика и программирование}
+            \providecommand{\thespecialization@ru}{Информатика и программирование 2018}
             \providecommand{\thespecialty@ru}{01.03.02~Прикладная математика и информатика}
             \providecommand{\thespecialization@en}{Mathematical models and algorithms in software engineering}
             \providecommand{\thespecialty@en}{01.03.02~Applied mathematics and informatics}

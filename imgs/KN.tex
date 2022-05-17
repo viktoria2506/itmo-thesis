@@ -1,0 +1,309 @@
+% This file was created with tikzplotlib v0.10.1.
+\begin{tikzpicture}
+
+\definecolor{darkgray176}{RGB}{176,176,176}
+\definecolor{goldenrod1911910}{RGB}{191,191,0}
+\definecolor{green01270}{RGB}{0,127,0}
+\definecolor{lightgray204}{RGB}{204,204,204}
+\definecolor{steelblue31119180}{RGB}{31,119,180}
+
+\begin{axis}[
+legend cell align={left},
+legend style={
+  fill opacity=0.8,
+  draw opacity=1,
+  text opacity=1,
+  at={(0.03,0.97)},
+  anchor=north west,
+  draw=lightgray204
+},
+tick align=outside,
+tick pos=left,
+x grid style={darkgray176},
+xlabel={Размер задачи n},
+xmin=-68.8, xmax=2148.8,
+xtick style={color=black},
+y grid style={darkgray176},
+ylabel={Количество итераций t},
+ymin=-221.496875, ymax=4603.309375,
+ytick style={color=black}
+]
+\path [draw=blue, line width=0.32pt]
+(axis cs:32,10.3375)
+--(axis cs:32,26.3375);
+
+\path [draw=blue, line width=0.32pt]
+(axis cs:64,25.375)
+--(axis cs:64,47.375);
+
+\path [draw=blue, line width=0.32pt]
+(axis cs:128,61.125)
+--(axis cs:128,97.125);
+
+\path [draw=blue, line width=0.32pt]
+(axis cs:256,140.125)
+--(axis cs:256,186.125);
+
+\path [draw=blue, line width=0.32pt]
+(axis cs:512,293.663)
+--(axis cs:512,373.663);
+
+\path [draw=blue, line width=0.32pt]
+(axis cs:1024,627.138)
+--(axis cs:1024,727.138);
+
+\path [draw=blue, line width=0.32pt]
+(axis cs:2048,1281.21)
+--(axis cs:2048,1461.21);
+
+\path [draw=goldenrod1911910, line width=0.32pt]
+(axis cs:32,1.65)
+--(axis cs:32,41.65);
+
+\path [draw=goldenrod1911910, line width=0.32pt]
+(axis cs:64,9.425)
+--(axis cs:64,79.425);
+
+\path [draw=goldenrod1911910, line width=0.32pt]
+(axis cs:128,57.225)
+--(axis cs:128,127.225);
+
+\path [draw=goldenrod1911910, line width=0.32pt]
+(axis cs:256,151.387)
+--(axis cs:256,235.387);
+
+\path [draw=goldenrod1911910, line width=0.32pt]
+(axis cs:512,344.325)
+--(axis cs:512,464.325);
+
+\path [draw=goldenrod1911910, line width=0.32pt]
+(axis cs:1024,737.275)
+--(axis cs:1024,917.275);
+
+\path [draw=goldenrod1911910, line width=0.32pt]
+(axis cs:2048,1577.81)
+--(axis cs:2048,1817.81);
+
+\path [draw=red, line width=0.32pt]
+(axis cs:32,0.1375)
+--(axis cs:32,14.1375);
+
+\path [draw=red, line width=0.32pt]
+(axis cs:64,-0.637499999999999)
+--(axis cs:64,19.3625);
+
+\path [draw=red, line width=0.32pt]
+(axis cs:128,-2.1875)
+--(axis cs:128,37.8125);
+
+\path [draw=red, line width=0.32pt]
+(axis cs:256,2.0125)
+--(axis cs:256,52.0125);
+
+\path [draw=red, line width=0.32pt]
+(axis cs:512,0.762500000000003)
+--(axis cs:512,80.7625);
+
+\path [draw=red, line width=0.32pt]
+(axis cs:1024,2.8875)
+--(axis cs:1024,122.8875);
+
+\path [draw=red, line width=0.32pt]
+(axis cs:2048,27.4375)
+--(axis cs:2048,147.4375);
+
+\path [draw=green01270, line width=0.32pt]
+(axis cs:32,32.875)
+--(axis cs:32,92.875);
+
+\path [draw=green01270, line width=0.32pt]
+(axis cs:64,68.625)
+--(axis cs:64,168.625);
+
+\path [draw=green01270, line width=0.32pt]
+(axis cs:128,196.625)
+--(axis cs:128,296.625);
+
+\path [draw=green01270, line width=0.32pt]
+(axis cs:256,432.6)
+--(axis cs:256,572.6);
+
+\path [draw=green01270, line width=0.32pt]
+(axis cs:512,920.67)
+--(axis cs:512,1120.67);
+
+\path [draw=green01270, line width=0.32pt]
+(axis cs:1024,1939)
+--(axis cs:1024,2239);
+
+\path [draw=green01270, line width=0.32pt]
+(axis cs:2048,3984)
+--(axis cs:2048,4384);
+
+\addplot [semithick, blue, mark=*, mark size=3, mark options={solid}]
+table {%
+32 18.3375
+64 36.375
+128 79.125
+256 163.125
+512 333.663
+1024 677.138
+2048 1371.21
+};
+\addlegendentry{RLS}
+\addplot [semithick, goldenrod1911910, mark=*, mark size=3, mark options={solid}]
+table {%
+32 21.65
+64 44.425
+128 92.225
+256 193.387
+512 404.325
+1024 827.275
+2048 1697.81
+};
+\addlegendentry{(1+1)}
+\addplot [semithick, red, mark=*, mark size=3, mark options={solid}]
+table {%
+32 7.1375
+64 9.3625
+128 17.8125
+256 27.0125
+512 40.7625
+1024 62.8875
+2048 87.4375
+};
+\addlegendentry{(1+1) степенной закон}
+\addplot [semithick, green01270, mark=*, mark size=3, mark options={solid}]
+table {%
+32 62.875
+64 118.625
+128 246.625
+256 502.6
+512 1020.67
+1024 2089
+2048 4184
+};
+\addlegendentry{(1+(λ,λ))-ГА}
+\addplot [semithick, blue, mark=-, mark size=4, mark options={solid}, only marks, forget plot]
+table {%
+32 10.3375
+64 25.375
+128 61.125
+256 140.125
+512 293.663
+1024 627.138
+2048 1281.21
+};
+\addplot [semithick, blue, mark=-, mark size=4, mark options={solid}, only marks, forget plot]
+table {%
+32 26.3375
+64 47.375
+128 97.125
+256 186.125
+512 373.663
+1024 727.138
+2048 1461.21
+};
+\addplot [semithick, goldenrod1911910, mark=-, mark size=4, mark options={solid}, only marks, forget plot]
+table {%
+32 1.65
+64 9.425
+128 57.225
+256 151.387
+512 344.325
+1024 737.275
+2048 1577.81
+};
+\addplot [semithick, goldenrod1911910, mark=-, mark size=4, mark options={solid}, only marks, forget plot]
+table {%
+32 41.65
+64 79.425
+128 127.225
+256 235.387
+512 464.325
+1024 917.275
+2048 1817.81
+};
+\addplot [semithick, red, mark=-, mark size=4, mark options={solid}, only marks, forget plot]
+table {%
+32 0.1375
+64 -0.637499999999999
+128 -2.1875
+256 2.0125
+512 0.762500000000003
+1024 2.8875
+2048 27.4375
+};
+\addplot [semithick, red, mark=-, mark size=4, mark options={solid}, only marks, forget plot]
+table {%
+32 14.1375
+64 19.3625
+128 37.8125
+256 52.0125
+512 80.7625
+1024 122.8875
+2048 147.4375
+};
+\addplot [semithick, green01270, mark=-, mark size=4, mark options={solid}, only marks, forget plot]
+table {%
+32 32.875
+64 68.625
+128 196.625
+256 432.6
+512 920.67
+1024 1939
+2048 3984
+};
+\addplot [semithick, green01270, mark=-, mark size=4, mark options={solid}, only marks, forget plot]
+table {%
+32 92.875
+64 168.625
+128 296.625
+256 572.6
+512 1120.67
+1024 2239
+2048 4384
+};
+\addplot [semithick, steelblue31119180, forget plot]
+table {%
+32 18.3375
+64 36.375
+128 79.125
+256 163.125
+512 333.663
+1024 677.138
+2048 1371.21
+};
+\addplot [semithick, steelblue31119180, forget plot]
+table {%
+32 21.65
+64 44.425
+128 92.225
+256 193.387
+512 404.325
+1024 827.275
+2048 1697.81
+};
+\addplot [semithick, steelblue31119180, forget plot]
+table {%
+32 7.1375
+64 9.3625
+128 17.8125
+256 27.0125
+512 40.7625
+1024 62.8875
+2048 87.4375
+};
+\addplot [semithick, steelblue31119180, forget plot]
+table {%
+32 62.875
+64 118.625
+128 246.625
+256 502.6
+512 1020.67
+1024 2089
+2048 4184
+};
+\end{axis}
+
+\end{tikzpicture}
