@@ -3,12 +3,10 @@
 if [[ "$1" == "clean" ]]; then
     rm -f {bachelor-thesis,master-thesis,master-thesis-en}.{bib,aux,log,bbl,bcf,blg,run.xml,toc,tct,pdf,out}
 else
-    for i in bachelor-thesis master-thesis master-thesis-en; do
-        xelatex $i
-        biber   $i
-        xelatex $i
-        xelatex $i
-    done
-
+    xelatex bachelor-thesis
+    biber   bachelor-thesis
+    xelatex bachelor-thesis
+    xelatex bachelor-thesis
+    
     rm -f {bachelor-thesis,master-thesis,master-thesis-en}.{bib,aux,log,bbl,bcf,blg,run.xml,toc,tct,out}
 fi
