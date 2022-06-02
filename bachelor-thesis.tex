@@ -811,10 +811,16 @@ $$
   Тогда $E[T_i] \leq \frac{en}{n-i}$ и по аналогии с приведенным способом оценки в доказательстве Теоремы~\ref{thm:rls} для RLS, посчитаем математическое ожидание числа итераций до достижения оптимума:
   \begin{align*}
     \mathbb{E}[T] &\le
-                \sum_{i=o}^{\frac{n}{2} - \frac{\sqrt{n-2}}{2}} \mathbb{E}[T_i] \leq
+                \sum_{i=o}^{\frac{n}{2} - \frac{\sqrt{n-2}}{2}} \mathbb{E}[T_i]  \\
+        &\leq
                 \sum_{i=o}^{\frac{n}{2} - \frac{\sqrt{n-2}}{2}} \frac{en}{n-i} = [j = n - i] = en \sum_{j=\frac{n}{2} + \frac{\sqrt{n-2}}{2}}^{n} \frac{1}{j}  \\
+        &=      en \left(\sum_{j=1}^{n}\frac{1}{j} -  \sum_{j=1}^{\frac{n}{2} +  \frac{\sqrt{n-2}}{2} - 1} \frac{1}{j} \right) =
+        en\left(\ln(n) - \ln\left(\frac{n}{2} + \frac{\sqrt{n-2}}{2}\right) + O\left(\frac{1}{n}\right) \right) \\
         &=
-                en\left(\ln2 - \Theta\left(\frac{1}{\sqrt{n}}\right)\right) + o(1) = en \ln2 - o(n).
+                en \ln\left(\frac{n}{\frac{n}{2} + \frac{\sqrt{n-2}}{2}}\right) + O(1) = en \ln\left(\frac{2}{1 + \frac{\sqrt{n-2}}{n}}\right) + O(1) \\
+        &=      en\left(\ln2 - \ln\left(1 + \frac{\sqrt{n-2}}{n}\right)\right) + O(1) = en\left(\ln2 - \Theta\left(\frac{1}{\sqrt{n}}\right)\right) + O(1) \\
+        &=
+                 en \ln2 - o(n).
   \end{align*}
   \qed
 \end{proof}
